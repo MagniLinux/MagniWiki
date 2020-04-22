@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if terms %}
+        {% for term in terms %}
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <p class="title is-4">
+                            <a href="{{ term.permalink | safe }}">{{ term.name }}</a>
+                            <sub>({{ term.pages | length }})</sub>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    {% endif %}
+{% endblock content %}
+
+{% block top_content %}
+<b class="title is-1" style="color:#121212;">{{taxonomy.name | title}}</b>
+{% endblock top_content %}
