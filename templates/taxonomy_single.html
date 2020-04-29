@@ -11,10 +11,10 @@
                         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
                     </p>
                     <p class="subtitle is-size-6 has-text-grey-light">
-                        Published on {{fmt_date::month(month=page.month)}}{{fmt_date::day(day=page.day) | trim}}, {{ page.year }} &middot;
+                        Published on {{fmt_date::month(month=page.month)}}{% if page.day %}{{fmt_date::day(day=page.day) | trim}}{% endif %}, {{ page.year }} &middot;
                         <svg class="i-clock"viewBox="0 0 32 32"width="16"height="16"fill="none"stroke="currentcolor"stroke-linecap="round"stroke-linejoin="round" stroke-width="6.25%"><circle cx="16" cy="16" r="14"/><path d="M16 8 L16 16 20 20"/>
                             <span>&nbsp;{{ page.reading_time }} minute read</span></p>
-                    <p>{{page.description}}</p>
+                    <p>{{page.description | markdown(inline=true) | safe }}</p>
                 </div>
             </div>
         </article>
