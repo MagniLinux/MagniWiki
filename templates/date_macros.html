@@ -30,22 +30,21 @@
 {% endmacro month %}
 
 {% macro day(day) %}
-    {% if day == 1 %}
-        {% set d = "1st" %}
-    {% elif day == 2 %}
-        {% set d = "2nd" %}
-    {% elif day == 3 %}
-        {% set d = "3rd" %}
-    {% elif day == 21 %}
-        {% set d = "21st" %}
-    {% elif day == 22 %}
-        {% set d = "22nd" %}
-    {% elif day == 23 %}
-        {% set d = "23rd" %}
-    {% elif day == 31 %}
-        {% set d = "31st" %}    
+    {% if day | date(format="%d")  == 1 %}
+        1st
+    {% elif day | date(format="%d") == 2 %}
+        2nd
+    {% elif day | date(format="%d") == 3 %}
+        3rd
+    {% elif day | date(format="%d") == 21 %}
+        21st
+    {% elif day | date(format="%d") == 22 %}
+        22nd
+    {% elif day | date(format="%d") == 23 %}
+        23rd
+    {% elif day | date(format="%d") == 31 %}
+        31st 
     {% else %}
-        {% set d = "{{day}}" ~ "th" %}
+        {{day}}th
     {% endif %}
-    {{d}}
 {% endmacro month %}
