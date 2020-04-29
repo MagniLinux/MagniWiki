@@ -26,11 +26,7 @@
                         <a href="/category/{{cat | lower | replace(from=" ", to="-")}}">{{ cat }}</a>
                         {% if page.taxonomies.category | length > 1 %}
                             {% if loop.index != page.taxonomies.category | length %}
-                                {% if loop.index == page.taxonomies.category | length - 1 %}
-                                and
-                                {% else %}
-                                ,
-                                {% endif %}
+                                |
                             {% endif %}
                         {% endif %}
                     {% endfor %}
