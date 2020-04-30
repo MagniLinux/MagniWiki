@@ -4062,7 +4062,7 @@ fieldset[disabled] .button {
 }
 
 .table th {
-  color: #363636;
+  color: #B2B2B2;
 }
 
 .table th:not([align]) {
@@ -4086,23 +4086,23 @@ fieldset[disabled] .button {
 }
 
 .table thead {
-  background-color: transparent;
+  background-color: #B2B2B2;
 }
 
 .table thead td,
 .table thead th {
   border-width: 0 0 2px;
-  color: #363636;
+  color: #121212;
 }
 
 .table tfoot {
-  background-color: transparent;
+  background-color: #B2B2B2;
 }
 
 .table tfoot td,
 .table tfoot th {
   border-width: 2px 0 0;
-  color: #363636;
+  color: #121212;
 }
 
 .table tbody {
@@ -12295,6 +12295,10 @@ code {
   font-family: "JetBrains Mono";
   color: #7851a9;
   border-radius: .5em;
+}
+
+th {
+  background-color: #B2B2B2;
 }
 
 @media print {
