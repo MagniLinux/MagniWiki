@@ -4,10 +4,10 @@ compress:
     #!/bin/bash
     if [ -x /usr/bin/brotli ]; then
         if [ -d public ]; then
-            fd -e html --base-directory public -a -x brotli {}
+            fd -e html -e css -e js --base-directory public -a -x brotli {}
         else 
             zola build
-            fd -e html --base-directory public -a -x brotli {}
+            fd -e html -e css -e js --base-directory public -a -x brotli {}
         fi
     else
         echo "Please install brotli"
@@ -20,10 +20,10 @@ compress:
 
     if [ -x /usr/bin/gzip ]; then
         if [ -d public ]; then
-            fd -e html --base-directory public -a -x  gzip --best -k {}
+            fd -e html -e css -e js --base-directory public -a -x  gzip --best -k {}
         else 
             zola build
-            fd -e html --base-directory public -a -x  gzip --best -k {}
+            fd -e html -e css -e js --base-directory public -a -x  gzip --best -k {}
         fi
     else
         echo "Please install gzip"
