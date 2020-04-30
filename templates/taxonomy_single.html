@@ -10,6 +10,7 @@
 {% endblock title %}
 
 {% block content %}
+    <h3 class="title is-1" style="text-align:center;">{{term.name | title}}</h3>
     {% for page in paginator.pages %}
         <article class="media">
             <div class="media-content">
@@ -26,19 +27,18 @@
             </div>
         </article>
     {% endfor %}
+    {% if paginator.number_pagers > 1 %}
     <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
-    {{fmt_page::prev_btn(paginator=paginator)}}
-    {{fmt_page::next_btn(paginator=paginator)}}
-    <ul class="pagination-list">
-        {{fmt_page::start(paginator=paginator)}}
-        {{fmt_page::prev(paginator=paginator)}}
-        <li><a class="pagination-link is-current" aria-label="Page {{paginator.current_index}}" aria-current="page">{{paginator.current_index}}</a></li>
-        {{fmt_page::next(paginator=paginator)}}
-        {{fmt_page::end(paginator=paginator)}}
-    </ul>
-</nav>
+        {{fmt_page::prev_btn(paginator=paginator)}}
+        {{fmt_page::next_btn(paginator=paginator)}}
+        <ul class="pagination-list">
+            {{fmt_page::start(paginator=paginator)}}
+            {{fmt_page::prev(paginator=paginator)}}
+            <li><a class="pagination-link is-current" aria-label="Page {{paginator.current_index}}" aria-current="page">{{paginator.current_index}}</a></li>
+            {{fmt_page::next(paginator=paginator)}}
+            {{fmt_page::end(paginator=paginator)}}
+        </ul>
+    </nav>
+    {% endif %}
 {% endblock content %}
 
-{% block top_content %}
-    <b class="title is-1" style="color:#121212;">{{term.name | title}}</b>
-{% endblock top_content %}
