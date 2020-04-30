@@ -113,7 +113,6 @@ body {
 }
 
 .notification {
-
     @each $name,
     $pair in $colors {
         $color: nth($pair, 1);
@@ -133,15 +132,12 @@ section {
     height: 100%;
 }
 
-.columns:not(:last-child) {
-    margin-bottom: 0px;
-}
-
 body, html, .footer {
     background-color: $white-ter;
 }
 
 #mainContent {
+    margin-top: 7.5em;
     box-shadow: $box-shadow;
     background-color: #fefefe;
     padding: 1em;
@@ -175,42 +171,9 @@ a.toc-is-active {
     }
 }
 
-.container.space {
-    background-color: $white-ter;
-    padding: 2.5em;
-}
-
-.container.search {
-    background-color: #fefefe;
-    padding: calc(1.5rem + 5px) 2.5rem 1.5rem 0rem;
-    border-radius: $radius-large;
-    box-shadow: $box-shadow;
-}
-
-.ar {
-    display: flex;
-    align-items: right;
-    justify-content: right;
-}
-
-input.input.is-rounded {
-    color: $gPurp;
-    background-color: $white-ter;
-}
-
-div.control a.button {
-    border-top-right-radius: $radius-rounded;
-    border-bottom-right-radius: $radius-rounded;
-}
-
-.field.has-addons {
-    padding: 0em 1em;
-}
-
 .message-header, .panel-heading {
     font-weight: $weight-bold;
 }  
-
 
 .box.category {
     margin : -1em 0em;
@@ -230,9 +193,40 @@ code {
     background-color: $white-ter;
     font-family: $family-code;
     color: $royal;
-    border-radius: .5em;
+    border-radius: $radius-large; 
 }
 
 th {
     background-color: $table-head-background-color;
 }
+
+pre { 
+    white-space: pre-wrap;
+    tab-width: 4;
+}
+
+input.input {
+    color: $gPurp;
+    background-color: $white-ter;
+}
+
+div.control a.button {
+    border-top-right-radius: $radius-large;
+    border-bottom-right-radius: 0;
+}
+
+.field.has-addons {
+    margin-top: -.9em;
+    margin-right: -1em;
+    align-content: right;
+    justify-content: right;
+}
+
+button.button {
+    margin-top: -3.3em;
+    margin-left: -1em;
+    align-content: left;
+    justify-content: left;
+    border-radius: $radius-large 0 0 0;
+}
+
