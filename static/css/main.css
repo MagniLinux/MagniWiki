@@ -12199,12 +12199,23 @@ body, html, .footer {
 }
 
 #mainContent {
-  margin-top: 7.5em;
   -webkit-box-shadow: 0 1px 2px #eaeaea inset;
           box-shadow: 0 1px 2px #eaeaea inset;
   background-color: #fefefe;
   padding: 1em;
   border-radius: 8px;
+}
+
+@media screen and (max-width: 1001px) {
+  #mainContent {
+    margin-top: calc(100% / 18);
+  }
+}
+
+@media screen and (min-width: 1002px) {
+  #mainContent {
+    margin-top: 7rem;
+  }
 }
 
 .sticky {
@@ -12297,6 +12308,21 @@ button.button {
       -ms-flex-pack: left;
           justify-content: left;
   border-radius: 8px 0 0 0;
+}
+
+ul.cli {
+  margin-left: 2em;
+  margin-top: -.15em;
+  list-style: none;
+  color: #BC6EC5;
+}
+
+ul.cli li:before {
+  content: '$';
+  color: #2D9574;
+  font-weight: bold;
+  margin-left: -1em;
+  margin-right: 1em;
 }
 
 @media print {
