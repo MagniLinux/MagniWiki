@@ -25,7 +25,7 @@ It is based on a [rolling-release](https://en.wikipedia.org/wiki/Rolling_release
 
 Magni incorporates many of the newer features available to Linux users, including [systemd](https://wiki.archlinux.org/index.php/Systemd) init system, modern [file systems](https://wiki.archlinux.org/index.php/File_systems), LVM2, software RAID, udev support and inintcpio (with [dracut](https://wiki.archlinux.org/index.php/Dracut)), as well as the latest available kernels.
 
-### Pragmatism/Idealogical
+### Pragmatism / Idealogical
 
 Magni tries to be pragmatic. The principles here are only useful guidelines.
 Ultimately, design decisions are made on a case-by-case basis through developer consensus.
