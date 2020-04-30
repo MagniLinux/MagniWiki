@@ -14,8 +14,8 @@ $white-ter:    #ecf0f1;
 $primary: #121212 !default;
 $link: $grey;
 
-$family-sans-serif: "Fira Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-$family-code: "JetBrains Mono";
+$family-sans-serif: "Fira Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-code: "JetBrains Mono", Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 $body-size: 14px;
 
 $radius-small: 4px;
@@ -59,3 +59,9 @@ $table-foot-background-color: $table-head-background-color;
 $table-head-cell-color: #121212;
 $table-foot-cell-color: $table-head-cell-color;
 $table-cell-heading-color: $table-head-background-color;
+
+$gap: 21px;
+
+$fullhd: 1728px + (2 * $gap);
+
+$input-radius: 0 0 0 $radius-large;
