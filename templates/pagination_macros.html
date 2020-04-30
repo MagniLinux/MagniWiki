@@ -6,8 +6,8 @@
 {% endmacro start %}
 
 {% macro end(paginator) %}
-    {% if paginator.current_index < (paginator.total_pages - 1) %}
-    <li><a class="pagination-link" aria-label="Goto page {{paginator.total_pages}}" href="{{paginator.last}}">{{paginator.total_pages}}</a></li>
+    {% if paginator.current_index < (paginator.number_pagers - 1) %}
+    <li><a class="pagination-link" aria-label="Goto page {{paginator.number_pagers}}" href="{{paginator.last}}">{{paginator.number_pagers}}</a></li>
     {% endif %}
 {% endmacro end %}
 
@@ -24,10 +24,10 @@
 {% endmacro prev %}
 
 {% macro next(paginator) %}
-    {% if paginator.current_index == paginator.total_pages %}
-    {% elif paginator.current_index == (paginator.total_pages - 1) %}
+    {% if paginator.current_index == paginator.number_pagers %}
+    {% elif paginator.current_index == (paginator.number_pagers - 1) %}
     <li><a class="pagination-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
-    {% elif paginator.current_index  == (paginator.total_pages - 2) %}
+    {% elif paginator.current_index  == (paginator.number_pagers - 2) %}
     <li><a class="pagination-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
     {% else %}
     <li><a class="pagination-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
