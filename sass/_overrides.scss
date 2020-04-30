@@ -137,11 +137,17 @@ body, html, .footer {
 }
 
 #mainContent {
-    margin-top: 7.5em;
     box-shadow: $box-shadow;
     background-color: #fefefe;
     padding: 1em;
     border-radius: $radius-large;
+
+    @include until($desktop) {
+        margin-top: calc(100% / 18);
+    }
+    @include from($desktop) {
+        margin-top: 7rem;
+    }
 }
 
 .sticky {
@@ -228,5 +234,20 @@ button.button {
     align-content: left;
     justify-content: left;
     border-radius: $radius-large 0 0 0;
+}
+
+ul.cli {
+    margin-left: 2em;
+    margin-top: -.15em;
+    list-style:none;
+    color: #BC6EC5;
+
+    li:before {
+        content: '$';
+        color: #2D9574;
+        font-weight: bold;
+        margin-left: -1em;
+        margin-right: 1em;
+    }
 }
 

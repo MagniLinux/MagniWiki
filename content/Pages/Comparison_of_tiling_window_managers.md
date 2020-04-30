@@ -548,13 +548,12 @@ External control can also be achieved by programs like xdotool which simulate ke
 
 {% end %}
 
-
 ### Management style
 
 Dynamic management emphasizes automatic management of window layouts for speed and simplicity. Manual management emphasizes manual adjustment of layout and sizing with potentially more precise control, at the cost of more time spent moving and sizing windows.
 Layouts
 
-#### A number of common layout types appear in several tiling WMs, although the terminology varies somewhat.
+#### A number of common layout types appear in several tiling WMs, although the terminology varies somewhat
 
 * max: one window shown fullscreen (with or without a status bar, title and borders). Aka: monocle (dwm, monsterwm).
 * h-stack: master area in top half, other windows stack up horizontally in the bottom half. The master area may be resizable. May be inverted top-bottom (wmfs). Aka: bottom stack (dwm), bstack(monsterwm).
@@ -573,4 +572,4 @@ Layouts
 
 #### Key bindings
 
-Tiling window managers are usually designed to be used entirely with the keyboard or with keyboard & mouse. This is for speed (reaching for and moving a mouse is slow) and ease of use. Sensible key bindings are crucial to making workflow fast and efficient. Some default sets are better than others, but generally the keys can be rebound as desired by the user. 
+Tiling window managers are usually designed to be used entirely with the keyboard or with keyboard & mouse. This is for speed (reaching for and moving a mouse is slow) and ease of use. Sensible key bindings are crucial to making workflow fast and efficient. Some default sets are better than others, but generally the keys can be rebound as desired by the user.

@@ -16,9 +16,9 @@ Install the yakuake package.
 
 Once installed, you can start Yakuake from the terminal with:
 
-```sh
+{% cli() %}
 yakuake
-```
+{% end %}
 
 After Yakuake has started you can click on configure Yakuake by clicking on the `Open Menu` button (middle button on the bottom right hand side of the interface) and select `Configure Shortcuts` to change the hotkey to drop/retract the terminal automatically, by default it is set to `F12`.
 
@@ -72,9 +72,9 @@ qdbus org.kde.yakuake /yakuake/sessions runCommandInTerminal 6 "ssh work"
 
 You can replace `qdbus` bundled with Qt with more common `dbus-send`. For example, to show/hide Yakuake:
 
-```sh
+{% cli() %}
 dbus-send --type=method_call --dest=org.kde.yakuake /yakuake/window org.kde.yakuake.toggleWindowState
-```
+{% end %}
 
 ## See Also
 

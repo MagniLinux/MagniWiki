@@ -104,9 +104,9 @@ It will ask for your password and unlock your SSH keys. Upon restart your SSH ke
 
 To add a new key and store the password with kwallet use the following command
 
-```sh
+{% cli() %}
 ssh-add /path/to/new/key </dev/null
-```
+{% end %}
 
 ## Using the KDE Wallet to store Git credentials
 
@@ -142,9 +142,9 @@ Instead of storing passwords in plain text files, you can manually add new entri
 
 For example, if you want to log into the Docker Hub registry with Podman, which supports getting the passwords from stdin with the `--password-stdin` flag, you can use the following command to login:
 
-```sh
+{% cli() %}
 kwallet-query -r folder_entry wallet_name -f folder_name | podman login docker.io -u dockerhub_username --password-stdin
-```
+{% end %}
 
 This way, your password is not stored in any text file and neither is it stored in the terminal history file.
 

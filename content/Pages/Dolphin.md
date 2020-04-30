@@ -79,9 +79,9 @@ If icons are still not able display, and same error "Pixmap is a null Pixmap", r
 
 If icons are too big on Dolphin in not KDE environment, start it with:
 
-```sh
+{% cli() %}
 XDG_CURRENT_DESKTOP=KDE KDE_SESSION_VERSION=5 QT_AUTO_SCREEN_SCALE_FACTOR=0 dolphin
-```
+{% end %}
 
 ### Mismatched folder view background colors
 
