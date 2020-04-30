@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "http://0.0.0.0:3131"
+base_url = "https://wiki.magnilinux.org"
 
 # The site title and description; used in RSS by default.
 title = "MagniWiki"
@@ -16,7 +16,7 @@ highlight_code = true
 
 # The theme to use for code highlighting.
 # See below for list of allowed values.
-highlight_theme = "space"
+highlight_theme = "one-dark"
 
 # When set to "true", an RSS feed is automatically generated.
 generate_rss = false
@@ -41,7 +41,7 @@ generate_rss = false
 #     ]
 #
 taxonomies = [
-    {name = "category"}
+    {name = "category", paginate_by = 10}
 ]
 
 # The additional languages for the site.
