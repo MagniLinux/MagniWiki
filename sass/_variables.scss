@@ -53,3 +53,9 @@ $link-visited: $gPurp;
 $box-shadow: 0 1px 2px  #eaeaea inset;
 $box-padding: 1em;
 $box-background-color: $white-ter;
+
+$table-head-background-color: #B2B2B2;
+$table-foot-background-color: $table-head-background-color;
+$table-head-cell-color: #121212;
+$table-foot-cell-color: $table-head-cell-color;
+$table-cell-heading-color: $table-head-background-color;
