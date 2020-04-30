@@ -1,3 +1,3 @@
 +++
-redirect_to = "Magni_Linux.md"
+redirect_to = "Pages/magni-linux/"
 +++
