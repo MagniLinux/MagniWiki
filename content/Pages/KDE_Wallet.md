@@ -71,7 +71,7 @@ Install ksshaskpass package.
 
 Create an autostart script file and mark it as executable: 
 
-```shell
+```sh
 ~/.config/autostart-scripts/ssh-add.sh
 
 #!/bin/sh
@@ -152,7 +152,7 @@ This way, your password is not stored in any text file and neither is it stored 
 
 To unlock KWallet protected by the login password, it is necessary to add
 
-```ps1
+```sh
 exec --no-startup-id /usr/lib/pam_kwallet_init
 ```
 
