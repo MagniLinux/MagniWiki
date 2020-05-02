@@ -134,3 +134,102 @@ document.getElementById('sbtn').addEventListener('click', e => {
     window.location.assign(baseurl + filterValue);
     e.preventDefault();
 })
+
+/*
+function addCopyButtons(clipboard) {
+    document.querySelectorAll('pre:not(.cli)').forEach(function (codeBlock) {
+        var button = document.createElement('button');
+        button.className = 'copy-code-button';
+        button.type = 'button';
+        button.innerText = 'Copy';
+
+        button.addEventListener('click', function () {
+            clipboard.writeText(codeBlock.innerText).then(function () {
+                // Chrome doesn't seem to blur automatically,
+                //   leaving the button in a focused state. 
+                button.blur();
+
+                button.innerText = 'Copied!';
+
+                setTimeout(function () {
+                    button.innerText = 'Copy';
+                }, 2000);
+            }, function (error) {
+                button.innerText = 'Error';
+            });
+        });
+
+        var pre = codeBlock.parentNode;
+        
+            pre.parentNode.insertBefore(button, pre);
+        
+    });
+}
+
+addCopyButtons(navigator.clipboard);
+*/
+
+function sortTables() {
+    document.querySelectorAll('table').forEach(function (table) {
+
+        for (let i = 0; i < table.children[0].children[0].cells.length; i++) {
+            table.children[0].children[0].cells[i].addEventListener('click', function () {
+                sortTable(table, i)
+            });
+        }
+    });
+}
+
+function sortTable(table, n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    switching = true;
+    dir = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get the two elements you want to compare,
+            one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+            /* Check if the two rows should switch place,
+            based on the direction, asc or desc: */
+            if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            // Each time a switch is done, increase this count by 1:
+            switchcount++;
+        } else {
+            /* If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again. */
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    sortTables();
+});
