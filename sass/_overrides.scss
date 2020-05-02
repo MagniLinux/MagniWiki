@@ -1,3 +1,28 @@
+$table-color: $text-strong !default;
+$table-background-color: $scheme-main !default;
+
+$table-cell-border: 1px solid $border !default;
+$table-cell-border-width: 0 0 1px !default;
+$table-cell-padding: 0.5em 0.75em !default;
+$table-cell-heading-color: $text-strong !default;
+
+$table-head-cell-border-width: 0 0 2px !default;
+$table-head-cell-color: $text-strong !default;
+$table-foot-cell-border-width: 2px 0 0 !default;
+$table-foot-cell-color: $text-strong !default;
+
+$table-head-background-color: transparent !default;
+$table-body-background-color: transparent !default;
+$table-foot-background-color: transparent !default;
+
+$table-row-hover-background-color: $scheme-main-bis !default;
+
+$table-row-active-background-color: $primary !default;
+$table-row-active-color: $primary-invert !default;
+
+$table-striped-row-even-background-color: $scheme-main-bis !default;
+$table-striped-row-even-hover-background-color: $scheme-main-ter !default;
+
 body {
     font-size: 1em;
     font-weight: 500;
@@ -113,6 +138,7 @@ body {
 }
 
 .notification {
+
     @each $name,
     $pair in $colors {
         $color: nth($pair, 1);
@@ -132,7 +158,9 @@ section {
     height: 100%;
 }
 
-body, html, .footer {
+body,
+html,
+.footer {
     background-color: $white-ter;
 }
 
@@ -145,6 +173,7 @@ body, html, .footer {
     @include until($desktop) {
         margin-top: calc(100% / 18);
     }
+
     @include from($desktop) {
         margin-top: 7rem;
     }
@@ -177,38 +206,56 @@ a.toc-is-active {
     }
 }
 
-.message-header, .panel-heading {
+.message-header,
+.panel-heading {
     font-weight: $weight-bold;
-}  
+}
 
 .box.category {
-    margin : -1em 0em;
+    margin: -1em 0em;
     margin-top: 3em;
 }
 
-article.message,pre {
+article.message,
+pre {
     margin: 1.5em 0;
 }
 
-pre {
-    border-radius: $radius-large;
-    font-family: $family-code;
-}
 
 code {
     background-color: $white-ter;
     font-family: $family-code;
     color: $royal;
-    border-radius: $radius-large; 
+    border-radius: $radius-large;
 }
 
-th {
-    background-color: $table-head-background-color;
-}
-
-pre { 
+pre {
     white-space: pre-wrap;
-    tab-width: 4;
+    tab-size: 4;
+    border-radius: $radius-large;
+    font-family: $family-code;
+    margin: 0;
+
+    &.cli {
+        background-color: #292B2E;
+
+        code {
+            ul.cli {
+                margin-left: 2em;
+                margin-top: -.15em;
+                list-style: none;
+                color: #BC6EC5;
+            
+                li:before {
+                    content: '$';
+                    color: #2D9574;
+                    font-weight: bold;
+                    margin-left: -1em;
+                    margin-right: 1em;
+                }
+            }
+        }
+    }
 }
 
 input.input {
@@ -221,33 +268,127 @@ div.control a.button {
     border-bottom-right-radius: 0;
 }
 
+
 .field.has-addons {
     margin-top: -.9em;
     margin-right: -1em;
-    align-content: right;
-    justify-content: right;
+    float: right;
 }
 
 button.button {
-    margin-top: -3.3em;
+    margin-top: -.9em;
     margin-left: -1em;
     align-content: left;
     justify-content: left;
     border-radius: $radius-large 0 0 0;
 }
 
-ul.cli {
-    margin-left: 2em;
-    margin-top: -.15em;
-    list-style:none;
-    color: #BC6EC5;
+table {
+    @extend %block;
+    background-color: $table-background-color;
+    color: $table-color;
+    width: 100%;
 
-    li:before {
-        content: '$';
-        color: #2D9574;
-        font-weight: bold;
-        margin-left: -1em;
-        margin-right: 1em;
+    td,
+    th {
+        border: $table-cell-border;
+        border-width: $table-cell-border-width;
+        padding: 0.25em 0.5em;
+        vertical-align: top;
+        white-space: nowrap;
+        width: 1%;
+        text-align: center !important;
+    }
+
+    th {
+        color: $table-cell-heading-color;
+    }
+
+    thead {
+        background-color: $table-head-background-color;
+        border-radius: $radius-large !important;
+        cursor: pointer;
+
+        td,
+        th {
+            border-width: $table-head-cell-border-width;
+            color: $table-head-cell-color;
+            padding: 1em !important;
+        }
+    }
+
+    tbody {
+        background-color: $table-body-background-color;
+
+        tr {
+            &:hover {
+                background-color: $table-row-hover-background-color;
+            }
+            
+            strong {
+                color: $white-ish;
+            }
+
+            code {
+                background-color: $white-ish;
+            }
+            
+            td {
+                white-space: unset !important;
+                overflow-wrap: unset !important;
+            }
+
+            &:last-child {
+                td,
+                th {
+                    border-bottom-width: 0;
+                }
+            }
+        }
     }
 }
 
+.table-container {
+    @extend %block;
+
+    @include overflow-touch;
+
+    overflow: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    border-radius: $radius-large;
+}
+
+.copy-code-button {
+    color: #272822;
+    background-color: #FFF;
+    border-color: #272822;
+    border: 2px solid;
+    border-radius: 3px 3px 0px 0px;
+
+    /* right-align */
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+
+    margin-bottom: -2px;
+    padding: 3px 8px;
+    font-size: 0.8em;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #F2F2F2;
+    }
+
+    &:focus {
+        /* Avoid an ugly focus outline on click in Chrome,
+        but darken the button for accessibility.
+        See https://stackoverflow.com/a/25298082/1481479 */
+        background-color: #E6E6E6;
+        outline: 0;
+    }
+    
+    *:active {
+        background-color: #D9D9D9;
+    }
+}

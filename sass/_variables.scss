@@ -9,7 +9,9 @@ $blue:         #1F9BCF;
 $red:          #d9534f;
 $royal:        #7851a9;
 $gPurp:        #4f4473;
+$spacePurp:    #5d4d7a;
 $white-ter:    #ecf0f1;
+$white-ish:      #B2B2B2;
 
 $primary: #121212 !default;
 $link: $grey;
@@ -54,11 +56,14 @@ $box-shadow: 0 1px 2px  #eaeaea inset;
 $box-padding: 1em;
 $box-background-color: $white-ter;
 
-$table-head-background-color: #B2B2B2;
-$table-foot-background-color: $table-head-background-color;
-$table-head-cell-color: #121212;
-$table-foot-cell-color: $table-head-cell-color;
-$table-cell-heading-color: $table-head-background-color;
+$table-head-background-color: #292B2E;
+$table-head-cell-color: $spacePurp !important;
+$table-background-color:  #212026;
+$table-color: #686868;
+$table-cell-border-width: 0 !important;
+$table-cell-border: 0;
+$table-head-cell-border-width: 0;
+$table-row-hover-background-color: $gPurp;
 
 $gap: 21px;
 
