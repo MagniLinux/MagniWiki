@@ -21,7 +21,6 @@
 @import "bulma/elements/other.sass";
 
 
-
 // Bulma Form
 @import "bulma/form/shared.sass";
 @import "bulma/form/input-textarea.sass";
@@ -55,7 +54,7 @@
 @import "bulma/layout/footer.sass";
 
 @import "overrides";
-@import "print";
+//@import "print";
 
 html {
     scroll-behavior: smooth;
