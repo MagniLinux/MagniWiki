@@ -46,3 +46,7 @@ clean:
     else 
         echo "Already clean"
     fi
+
+# Update Webpages
+update:
+    git pull --ff-only
