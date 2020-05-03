@@ -8,10 +8,10 @@ compress:
     if [ -x /usr/bin/brotli ]; then
         if [ -x /usr/bin/fd ]; then
             echo "Compressing::Brotli"
-            fd -e html -e css -e js -e ico --search-path public -a -x brotli {}
+            fd -e html -e css -e js -e ico --search-path public -a -x brotli --best -kf {}
         elif [ -x /usr/bin/fdfind ]; then
             echo "Compressing::Brotli"
-            fdfind -e html -e css -e js -e ico --search-path public -a -x brotli {}
+            fdfind -e html -e css -e js -e ico --search-path public -a -x brotli --best -kf {}
         else
             echo "Please install fd"
         fi
@@ -27,10 +27,10 @@ compress:
     if [ -x /usr/bin/gzip ]; then
         if [ -x /usr/bin/fd ]; then
             echo "Compressing::Gzip"
-            fd -e html -e css -e js -e ico --search-path public -a -x gzip --best -k {}
+            fd -e html -e css -e js -e ico --search-path public -a -x gzip --best -kf {}
         elif [ -x /usr/bin/fdfind ]; then
             echo "Compressing::Gzip"
-            fdfind -e html -e css -e js -e ico --search-path public -a -x gzip --best -k {}
+            fdfind -e html -e css -e js -e ico --search-path public -a -x gzip --best -kf {}
         else
             echo "Please install fd"
         fi
