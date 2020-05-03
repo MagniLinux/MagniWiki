@@ -2,12 +2,18 @@
 # Compress files
 compress:
     #!/bin/bash
+    if [ ! -d public ]; then
+        zola build
+    fi
     if [ -x /usr/bin/brotli ]; then
-        if [ -d public ]; then
-            fd -e html -e css -e js --base-directory public -a -x brotli {}
-        else 
-            zola build
-            fd -e html -e css -e js --base-directory public -a -x brotli {}
+        if [ -x /usr/bin/fd ]; then
+            echo "Compressing::Brotli"
+            fd -e html -e css -e js -e ico --search-path public -a -x brotli {}
+        elif [ -x /usr/bin/fdfind ]; then
+            echo "Compressing::Brotli"
+            fdfind -e html -e css -e js -e ico --search-path public -a -x brotli {}
+        else
+            echo "Please install fd"
         fi
     else
         echo "Please install brotli"
@@ -19,11 +25,14 @@ compress:
     fi
 
     if [ -x /usr/bin/gzip ]; then
-        if [ -d public ]; then
-            fd -e html -e css -e js --base-directory public -a -x  gzip --best -k {}
-        else 
-            zola build
-            fd -e html -e css -e js --base-directory public -a -x  gzip --best -k {}
+        if [ -x /usr/bin/fd ]; then
+            echo "Compressing::Gzip"
+            fd -e html -e css -e js -e ico --search-path public -a -x gzip --best -k {}
+        elif [ -x /usr/bin/fdfind ]; then
+            echo "Compressing::Gzip"
+            fdfind -e html -e css -e js -e ico --search-path public -a -x gzip --best -k {}
+        else
+            echo "Please install fd"
         fi
     else
         echo "Please install gzip"
