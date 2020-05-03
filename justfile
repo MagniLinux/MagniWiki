@@ -2,9 +2,7 @@
 # Compress files
 compress:
     #!/bin/bash
-    if [ ! -d public ]; then
-        zola build
-    fi
+    zola build
     if [ -x /usr/bin/brotli ]; then
         if [ -x /usr/bin/fd ]; then
             echo "Compressing::Brotli"
