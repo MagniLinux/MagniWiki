@@ -10,7 +10,7 @@ category = ["KDE"]
 
 To unlock KDE Wallet automatically on login, Install kwallet-pam for the PAM compatible module. The chosen KWallet password must be the same as the current user password.
 
-{% note(head="Note:") %}
+{% note() %}
 
 * kwallet-pam is not compatible with GnuPG keys, the KDE Wallet must use the standard blowfish encryption.
 * The wallet cannot be unlocked when using autologin.
@@ -61,7 +61,7 @@ session         optional        pam_kwallet5.so auto_start
 
 ## Using the KDE Wallet to store ssh key passphrases
 
-{% note(head="Note:") %}
+{% note() %}
 A SSH agent should be up and running.
 {% end %}
 
