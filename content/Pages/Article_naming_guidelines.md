@@ -42,7 +42,7 @@ Hereinafter, we will use this name as an example: "How to improve omni download 
 
 We will cover a few techniques that will help us shorten the name. There are probably many more techniques that do not apply to this particular example, but you will still get insight into the concept of title editing.
 
-{% note(head="Note:") %}
+{% note() %}
 Literal translation of this article may prove to be a challenge for most languages. Please try to find alternative titles that may serve better for your language. Also, other languages may require different techniques than English.
 {% end %}
 

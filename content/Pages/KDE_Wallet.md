@@ -24,7 +24,7 @@ To unlock KDE Wallet automatically on login, Install kwallet-pam for the PAM com
 
 Optional install kwalletmanager for the wallet management tool. This tool can be used to create a KDE Wallet with `blowfish` encryption and more settings not provided by the kcm-module.
 
-{% tip(head="Tip:") %}
+{% tip() %}
 
 An alternative is to use **KWalletManager** and set an empty Kwallet-password, thus preventing the need of entering a password to unlock a wallet. Simply do not enter a password on both fields in Change Password... This may however lead to unwanted (read/write) access to the user's wallet. Enabling Prompt when an application accesses a wallet under Access Control is highly recommended to prevent unwanted access to the wallet.
 
@@ -118,7 +118,7 @@ Configure Git by setting the `GIT_ASKPASS` environment variable:
 export GIT_ASKPASS='/usr/bin/ksshaskpass'
 ```
 
-{% tip(head="Tip:") %}
+{% tip() %}
 
 If the `SSH_ASKPASS` environment variable is set to ksshaskpass, then additionally setting `GIT_ASKPASS` is not required.
 

@@ -69,7 +69,7 @@ See Samba#Unable to overwrite files.
 
 If icons are not displaying on Dolphin, and an error similar to "Pixmap is a null Pixmap" appears on the console, try putting this line in your `~/.profile`
 
-```sh
+```sh ~/.profile
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
 ```
 
@@ -87,9 +87,7 @@ XDG_CURRENT_DESKTOP=KDE KDE_SESSION_VERSION=5 QT_AUTO_SCREEN_SCALE_FACTOR=0 dolp
 
 When running Dolphin under something other than Plasma, it is possible the background color in the folder view pane will not match the system Qt theme. This is because Dolphin reads the folder view's background color from the `[Colors:View]` section in `~/.config/kdeglobals`. Change the following line to the R,G,B values you prefer:
 
-```sh
-~/.config/kdeglobals
-
+```sh ~/.config/kdeglobals
 ...
 [Colors:View]
 BackgroundNormal=23,24,24

@@ -20,7 +20,7 @@ Pacakges are only split when compelling advatages exist, such as to save disk sp
 
 ### Modernity
 
-Magni Linux strives to maintain the latest stabke release versions of its software as long as systemic breaking changes can be reasonably avoided.
+Magni Linux strives to maintain the latest stable release versions of its software as long as systemic breaking changes can be reasonably avoided.
 It is based on a [rolling-release](https://en.wikipedia.org/wiki/Rolling_release) system, which allows a one-time installation with continuos upgrades.
 
 Magni incorporates many of the newer features available to Linux users, including [systemd](https://wiki.archlinux.org/index.php/Systemd) init system, modern [file systems](https://wiki.archlinux.org/index.php/File_systems), LVM2, software RAID, udev support and inintcpio (with [dracut](https://wiki.archlinux.org/index.php/Dracut)), as well as the latest available kernels.
