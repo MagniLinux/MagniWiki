@@ -1,25 +1,7 @@
-const baseurl = "http://127.0.0.1:8083/?q="
-document.addEventListener('DOMContentLoaded', () => {
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-        // Add a click event on each of them
-        $navbarBurgers.forEach(el => {
-            el.addEventListener('click', () => {
-                // Get the target from the "data-target" attribute
-                const target = el.dataset.target;
-                const $target = document.getElementById(target);
-                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                el.classList.toggle('is-active');
-                $target.classList.toggle('is-active');
-            }
-            );
-        }
-        );
-    }
-}
-);
+const baseurl = "https://wiki.magnilinux.org/?q="
+// Get media query
+// bulma desktop + (2 * $gap)
+const mq = window.matchMedia( "(min-width: 1002px)" );
 
 // Dropdowns
 var $dropdowns = getAll('.dropdown:not(.is-hoverable)');
@@ -135,9 +117,8 @@ document.getElementById('sbtn').addEventListener('click', e => {
     e.preventDefault();
 })
 
-/*
 function addCopyButtons(clipboard) {
-    document.querySelectorAll('pre:not(.cli)').forEach(function (codeBlock) {
+    document.querySelectorAll('pre.data-path').forEach(function (codeBlock) {
         var button = document.createElement('button');
         button.className = 'copy-code-button';
         button.type = 'button';
@@ -159,15 +140,12 @@ function addCopyButtons(clipboard) {
             });
         });
 
-        var pre = codeBlock.parentNode;
+        var pre = codeBlock;
         
-            pre.parentNode.insertBefore(button, pre);
+        codeBlock.parentNode.insertBefore(button, pre);
         
     });
 }
-
-addCopyButtons(navigator.clipboard);
-*/
 
 function sortTables() {
     document.querySelectorAll('table').forEach(function (table) {
@@ -230,6 +208,28 @@ function sortTable(table, n) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
+    // Get all "navbar-burger" elements
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            }
+            );
+        }
+        );
+    }
+    if (mq.matches) {
+        addCopyButtons(navigator.clipboard);
+    }
     sortTables();
-});
+}
+);
