@@ -16,7 +16,7 @@ highlight_code = true
 
 # The theme to use for code highlighting.
 # See below for list of allowed values.
-highlight_theme = "one-dark"
+highlight_theme = "space-dark"
 
 # When set to "true", an RSS feed is automatically generated.
 generate_rss = false
