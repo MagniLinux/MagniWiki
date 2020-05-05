@@ -46,9 +46,7 @@ Edit the PAM configuration corresponding to your situation:
 * For LightDM edit `/etc/pam.d/lightdm` and `/etc/pam.d/lightdm-greeter` files:
 * For unlocking on tty login (no display manager), edit `/etc/pam.d/login` accordingly
 
-```pam
-/etc/pam.d/lightdm
-
+```pam /etc/pam.d/lightdm
 #%PAM-1.0
 auth            include         system-login
 auth            optional        pam_kwallet5.so
@@ -69,32 +67,30 @@ A SSH agent should be up and running.
 
 Install ksshaskpass package.
 
-Create an autostart script file and mark it as executable: 
+Create an autostart script file and mark it as executable:
 
-```sh
-~/.config/autostart-scripts/ssh-add.sh
-
+```sh ~/.config/autostart-scripts/ssh-add.sh
 #!/bin/sh
 ssh-add -q < /dev/null
 ```
 
-{% tip(head="Tip:") %}
+<article class="message is-success">
+    <div class="message-body">
+        <strong>Tip</strong><br/>
+
 The above ssh-add.sh script will only add the default key `~/.ssh/id_rsa`. Assuming you have different SSH keys named `key1`, `key2`, `key3` in `~/.ssh/`, you may add them automatically on login by changing the above script to:
 
-```sh
-~/.config/autostart-scripts/ssh-add.sh
-
+```sh ~/.config/autostart-scripts/ssh-add.sh
 #!/bin/sh
 ssh-add -q ~/.ssh/key1 ~/.ssh/key2 ~/.ssh/key3 < /dev/null
 ```
 
-{% end %}
+</div>
+</article>
 
 You also have to set the `SSH_ASKPASS` environment variable to `ksshaskpass`. For example, create the following autostart script file and mark it executable:
 
-```sh
-~/.config/plasma-workspace/env/askpass.sh
-
+```sh ~/.config/plasma-workspace/env/askpass.sh
 #!/bin/sh
 
 export SSH_ASKPASS='/usr/bin/ksshaskpass'
@@ -116,9 +112,7 @@ Install the ksshaskpass package.
 
 Configure Git by setting the `GIT_ASKPASS` environment variable:
 
-```sh
-~/.config/plasma-workspace/env/askpass.sh
-
+```sh ~/.config/plasma-workspace/env/askpass.sh
 #!/bin/sh
 
 export GIT_ASKPASS='/usr/bin/ksshaskpass'
