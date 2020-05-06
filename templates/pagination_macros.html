@@ -1,48 +1,48 @@
 
 {% macro start(paginator) %}
     {% if paginator.current_index  > 2 %}
-    <li><a class="pagination-link" aria-label="Goto page 1" href="{{paginator.first}}">1</a></li>
+    <li><a class="pg-link" aria-label="Goto page 1" href="{{paginator.first}}">1</a></li>
     {% endif %}
 {% endmacro start %}
 
 {% macro end(paginator) %}
     {% if paginator.current_index < (paginator.number_pagers - 1) %}
-    <li><a class="pagination-link" aria-label="Goto page {{paginator.number_pagers}}" href="{{paginator.last}}">{{paginator.number_pagers}}</a></li>
+    <li><a class="pg-link" aria-label="Goto page {{paginator.number_pagers}}" href="{{paginator.last}}">{{paginator.number_pagers}}</a></li>
     {% endif %}
 {% endmacro end %}
 
 {% macro prev(paginator) %}
     {% if paginator.current_index  == 1 %}
     {% elif paginator.current_index  == 2 %}
-    <li><a class="pagination-link" aria-label="Goto page 1" href="{{paginator.previous}}">1</a></li>
+    <li><a class="pg-link" aria-label="Goto page 1" href="{{paginator.previous}}">1</a></li>
     {% elif paginator.current_index  == 3 %}
-    <li><a class="pagination-link" aria-label="Goto page 2" href="{{paginator.previous}}">2</a></li>
+    <li><a class="pg-link" aria-label="Goto page 2" href="{{paginator.previous}}">2</a></li>
     {% else %}
-    <li><span class="pagination-ellipsis">&hellip;</span></li>
-    <li><a class="pagination-link" aria-label="Goto page {{paginator.current_index - 1}}" href="{{paginator.previous}}">{{paginator.current_index - 1}}</a></li>
+    <li><span class="pg-ellipsis">&hellip;</span></li>
+    <li><a class="pg-link" aria-label="Goto page {{paginator.current_index - 1}}" href="{{paginator.previous}}">{{paginator.current_index - 1}}</a></li>
     {% endif %}
 {% endmacro prev %}
 
 {% macro next(paginator) %}
     {% if paginator.current_index == paginator.number_pagers %}
     {% elif paginator.current_index == (paginator.number_pagers - 1) %}
-    <li><a class="pagination-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
+    <li><a class="pg-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
     {% elif paginator.current_index  == (paginator.number_pagers - 2) %}
-    <li><a class="pagination-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
+    <li><a class="pg-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
     {% else %}
-    <li><a class="pagination-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
-    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><a class="pg-link" aria-label="Goto page {{paginator.current_index + 1}}" href="{{paginator.next}}">{{paginator.current_index + 1}}</a></li>
+    <li><span class="pg-ellipsis">&hellip;</span></li>
     {% endif %}
 {% endmacro next %}
 
 {% macro next_btn(paginator) %}
     {% if paginator.next %}
-    <a class="pagination-next" href="{{paginator.next}}">Next</a></li>
+    <a class="pg-next" href="{{paginator.next}}">Next</a></li>
     {% endif %}
 {% endmacro next_btn %}
 
 {% macro prev_btn(paginator) %}
     {% if paginator.previous %}
-    <a class="pagination-previous" href="{{paginator.previous}}">Previous</a></li>
+    <a class="pg-previous" href="{{paginator.previous}}">Previous</a></li>
     {% endif %}
 {% endmacro prev_btn %}
