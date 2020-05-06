@@ -74,8 +74,8 @@ Create an autostart script file and mark it as executable:
 ssh-add -q < /dev/null
 ```
 
-<article class="message is-success">
-    <div class="message-body">
+<article class="msg is-success">
+    <div class="msg-body">
         <strong>Tip</strong><br/>
 
 The above ssh-add.sh script will only add the default key `~/.ssh/id_rsa`. Assuming you have different SSH keys named `key1`, `key2`, `key3` in `~/.ssh/`, you may add them automatically on login by changing the above script to:
