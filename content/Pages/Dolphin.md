@@ -16,13 +16,13 @@ For version control and Dropbox support, install dolphin-plugins. To enable the 
 
 ### Compare Files
 
-The _Compare files_ dialog depends on kompare. Alternatively, you can compare files in any diff tool (such as meld) by selecting two files, right clicking, selecting open with, and then the diff tool. 
+The _Compare files_ dialog depends on kompare. Alternatively, you can compare files in any diff tool (such as meld) by selecting two files, right clicking, selecting open with, and then the diff tool.
 
 ### File Previews
 
 * kdegraphics-thumbnailers: Image files and PDFs
 * kimageformats: Gimp .xcf files
-* resvgAUR: Fast and accurate SVG image thumbnails
+* resvg: Fast and accurate SVG image thumbnails
 * kdesdk-thumbnailers: Plugins for the thumbnailing system
 * ffmpegthumbs: Video files (based on ffmpeg)
 * raw-thumbnailer: .raw files
@@ -94,7 +94,7 @@ BackgroundNormal=23,24,24
 ...
 ```
 
-Alternatively, use kvantum-qt5 to manage your Qt5 theming. For instructions on usage see the Kvantum project homepage. 
+Alternatively, use kvantum-qt5 to manage your Qt5 theming. For instructions on usage see the Kvantum project homepage.
 
 ## See Also
 
