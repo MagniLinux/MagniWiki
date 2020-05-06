@@ -10,9 +10,9 @@
 <h3 class="title is-1" style="text-align:center;">Categories</h3>
     {% if terms %}
         {% for term in terms %}
-            <article class="media">
-                <div class="media-content">
-                    <div class="content">
+            <article class="md">
+                <div class="md-cnt">
+                    <div class="cnt">
                         <p class="title is-4">
                             <a href="{{ term.permalink | safe }}">{{ term.name }}</a>
                             <sub>({{ term.pages | length }})</sub>

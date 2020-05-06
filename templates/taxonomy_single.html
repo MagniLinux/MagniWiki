@@ -12,9 +12,9 @@
 {% block content %}
     <h3 class="title is-1" style="text-align:center;">{{term.name | title}}</h3>
     {% for page in paginator.pages %}
-        <article class="media">
-            <div class="media-content">
-                <div class="content">
+        <article class="md">
+            <div class="md-cnt">
+                <div class="cnt">
                     <p class="title is-4">
                         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
                     </p>
@@ -28,13 +28,13 @@
         </article>
     {% endfor %}
     {% if paginator.number_pagers > 1 %}
-    <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+    <nav class="pg is-c is-rounded" role="navigation" aria-label="pagination">
         {{fmt_page::prev_btn(paginator=paginator)}}
         {{fmt_page::next_btn(paginator=paginator)}}
-        <ul class="pagination-list">
+        <ul class="pg-list">
             {{fmt_page::start(paginator=paginator)}}
             {{fmt_page::prev(paginator=paginator)}}
-            <li><a class="pagination-link is-current" aria-label="Page {{paginator.current_index}}" aria-current="page">{{paginator.current_index}}</a></li>
+            <li><a class="pg-l is-current" aria-label="Page {{paginator.current_index}}" aria-current="page">{{paginator.current_index}}</a></li>
             {{fmt_page::next(paginator=paginator)}}
             {{fmt_page::end(paginator=paginator)}}
         </ul>

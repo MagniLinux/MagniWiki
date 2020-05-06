@@ -14,7 +14,7 @@
 
 {% block content %}
     <div class="section">
-        <div class="content">
+        <div class="cnt">
             <h1>{{page.title | title }}</h1>
             <p>{{page.description | markdown(inline=true) | safe}}</p>
             {{ page.content | safe }}

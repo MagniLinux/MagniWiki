@@ -14,8 +14,8 @@ Visit the Table of contents for a listing of article categories.
 
 ## The Distribution
 
-<div class="columns">
-<div class="column">
+<div class="cols">
+<div class="col">
 
 ### [Magni Linux](@/Pages/Magni_Linux.md)
 
@@ -30,7 +30,7 @@ Notable questions and facts about the distribution.
 Summarizes the similarities and differences between Magni and other distributions.
 
 </div>
-<div class="column">
+<div class="col">
 
 ### Installation Guide
 
@@ -49,15 +49,15 @@ Categorized presentation of common official and AUR packages.
 
 ## Our Community
 
-<div class="columns">
-<div class="column">
+<div class="cols">
+<div class="col">
 
 ### Code of Conduct
 
 Guidelines for the Magni community.
 
 </div>
-<div class="column">
+<div class="col">
 
 ### Getting involved
 
