@@ -1,4 +1,4 @@
-const baseurl = "https://wiki.magnilinux.org/?q="
+const baseurl = "https://wiki.magnilinux.org/search/?q="
 // Get media query
 // bulma desktop + (2 * $gap)
 const mq = window.matchMedia( "(min-width: 1002px)" );
