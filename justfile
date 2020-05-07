@@ -175,4 +175,4 @@ push:
     fi
 
 # Update Webpages
-update: clean _preUpdate compress
+update:  _preUpdate compress
