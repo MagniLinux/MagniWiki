@@ -2,6 +2,7 @@
 compress:
     #!/bin/bash
     zola build
+    zola index -t tantivy -o $PWD
     brotli_comp() {
         if [ $(command -v brotli) ]; then
             echo -e "\e[33mCompressing\e[39m::\e[32mBrotli\e[39m"
