@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>
+    Page not Found | {{ config.title }}
+    </title>
+{% endblock title %}
+
+{% block content %}
+    <h3 class="title is-1" style="text-align:center;">404 page not found...</h3>
+
+    <div class="cnt">
+        <p>404 error message is a Hypertext Transfer Protocol (HTTP) standard response code, in computer network communications, to indicate that the browser was able to communicate with a given server, but the server could not find what was requested.
+        The error may also be used when a server does not wish to disclose whether it has the requested information.</p>
+
+        <p>The website hosting server will typically generate a "404 Not Found" web page when a user attempts to follow a broken or dead link.</p>
+        <div class="text-c">
+            <a class="btn" href="{{ config.base_url }}">Return to Homepage</a>
+        </div>
+    </div>
+
+{% endblock content %}
