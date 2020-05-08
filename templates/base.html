@@ -17,7 +17,7 @@
 
             <!--  css -->
             <link rel="stylesheet" href="{{ get_url(path="css/main.min.css") | safe }}">
-            <link rel="stylesheet" href="{{ get_url(path="css/print.min.css") | safe }}" media="print"> 
+            <link rel="stylesheet" href="{{ get_url(path="css/print.min.css") | safe }}" media="print">
         {% endblock head %}
     </head>
 
@@ -53,7 +53,7 @@
                     <p class="menu-label is-hidden-touch">Main</p>
                     <ul class="menu-list">
                         <li>
-                            <a href="/" {% if current_path == "/" %}class="is-on"{% endif %}>Main Page</a>
+                            <a href="/" {% if current_path and current_path == "/" %}class="is-on"{% endif %}>Main Page</a>
                         </li>
                         <li>
                             <a href="/table-of-contents/" {% if page.relative_path and page.relative_path == "Main/Table_of_Contents.md" %}class="is-on"{% endif %}>Table of Contents</a>
@@ -71,7 +71,7 @@
                     <p class="menu-label is-hidden-touch">Interaction</p>
                     <ul class="menu-list">
                         <li>
-                            <a href="/category/help/" {% if current_path == "/category/help" %}class="is-on"{% endif %}>Help</a>
+                            <a href="/category/help/" {% if current_path and current_path == "/category/help" %}class="is-on"{% endif %}>Help</a>
                         </li>
                         <li>
                             <a href="/Interaction/contributing" {% if page.relative_path and page.relative_path == "Interaction/Contributing.md" %}class="is-on"{% endif %}>Contributing</a>
@@ -90,29 +90,29 @@
             </aside>
 
             <div class="container col is-9-fullhd is-8-desktop is-11-touch">
-            <div id="mainContent">
-            {% if not page.translations or not section.translation %}
-                <div class="field has-addons">
-                    <div class="control">
-                        <input id="sbr" class="input" type="text" placeholder="Search" onkeydown="if (event.keyCode == 13) document.getElementById('submit-btn').click()">
-                    </div>
-                    <div class="control">
-                        <a class="btn" type="submit" id="sbtn">Search</a>
-                    </div>
-                </div>
-                {% else %}
-                <div class="field has-addons">
-                    <div class="control">
-                        <input id="sbr" class="input" type="text" placeholder="Search" onkeydown="if (event.keyCode == 13) document.getElementById('submit-btn').click()">
-                    </div>
-                    <div class="control">
-                        <a class="btn" type="submit" id="sbtn">Search</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <div class="dropdown-trigger">
-                        <button class="btn" aria-haspopup="true" aria-controls="dropdown-menu">
-                            {% if now_lang == "ar" %}
+                <div id="mainContent">
+                    {% if not page.translations or not section.translation %}
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input id="sbr" class="input" type="text" placeholder="Search" onkeydown="if (event.keyCode == 13) document.getElementById('submit-btn').click()">
+                            </div>
+                            <div class="control">
+                                <a class="btn" type="submit" id="sbtn">Search</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input id="sbr" class="input" type="text" placeholder="Search" onkeydown="if (event.keyCode == 13) document.getElementById('submit-btn').click()">
+                            </div>
+                            <div class="control">
+                                <a class="btn" type="submit" id="sbtn">Search</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <div class="dropdown-trigger">
+                                <button class="btn" aria-haspopup="true" aria-controls="dropdown-menu">
+                                    {% if now_lang == "ar" %}
                             الأرجنتين
                             {% elif now_lang == "az" %}
                             Azərbaycan
@@ -129,25 +129,25 @@
                             {% elif now_lang == "it" %}
                             Italiano
                             {% endif %}
-                        </button>
-                    </div>
+                                </button>
+                            </div>
 
-                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                        <div class="dropdown-content">
-                            {% if now_lang != config.default_language %}
-                                {% if page.path %}
-                                    {% set eng_path = page.path | split(pat = "/") | slice(start = 1) | join(sep = "/") %}
-                                {% elif section.path %}
-                                    {% set eng_path = section.path | split(pat = "/") | slice(start = 1) | join(sep = "/") %}
-                                {% else %}
-                                    {% set eng_path = "" %}
-                                    <a href="/{{ eng_path }}" class="dropdown-item">English</a>
-                                {% endif %}
-                            {% endif %}
-                            {% if page.translations %}
-                                {% for translation in page.translations %}
-                                    <a href="{{ translation.permalink }}" class="dropdown-item">
-                                        {% if translation.lang == "ar" %}
+                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                <div class="dropdown-content">
+                                    {% if now_lang != config.default_language %}
+                                        {% if page.path %}
+                                            {% set eng_path = page.path | split(pat = "/") | slice(start = 1) | join(sep = "/") %}
+                                        {% elif section.path %}
+                                            {% set eng_path = section.path | split(pat = "/") | slice(start = 1) | join(sep = "/") %}
+                                        {% else %}
+                                            {% set eng_path = "" %}
+                                            <a href="/{{ eng_path }}" class="dropdown-item">English</a>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if page.translations %}
+                                        {% for translation in page.translations %}
+                                            <a href="{{ translation.permalink }}" class="dropdown-item">
+                                                {% if translation.lang == "ar" %}
                             الأرجنتين
                             {% elif translation.lang == "az" %}
                             Azərbaycan
@@ -162,12 +162,12 @@
                             {% elif translation.lang == "it" %}
                             Italiano
                             {% endif %}
-                                    </a>
-                                {% endfor %}
-                            {% elif section.translations %}
-                                {% for translation in section.translations %}
-                                    <a href="{{ translation.permalink }}" class="dropdown-item">
-                                        {% if translation.lang == "ar" %}
+                                            </a>
+                                        {% endfor %}
+                                    {% elif section.translations %}
+                                        {% for translation in section.translations %}
+                                            <a href="{{ translation.permalink }}" class="dropdown-item">
+                                                {% if translation.lang == "ar" %}
                             الأرجنتين
                             {% elif translation.lang == "az" %}
                             Azərbaycan
@@ -182,33 +182,33 @@
                             {% elif translation.lang == "it" %}
                             Italiano
                             {% endif %}
-                                    </a>
-                                {% endfor %}
-                            {% endif %}
+                                            </a>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
+
+                    {% block content %}{% endblock content %}
                 </div>
-                {% endif %}
-                            
-                {% block content %}{% endblock content %}
             </div>
-        </div>
-        <div id="anchorMenu" class="container col is-1-fullhd is-2-desktop is-hidden-touch">
-            {% block anchor_menu %}{% endblock anchor_menu %}
-        </div>
-    </section>
-    <footer class="footer">
-        <div class="col is-narrow is-hidden-mobile"></div>
-        <div class="col cnt text-c is-c section">
-            <p>
-                <strong>Magni Linux</strong> by David Karrick. The website content is licensed <a
-                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            <div id="anchorMenu" class="container col is-1-fullhd is-2-desktop is-hidden-touch">
+                {% block anchor_menu %}{% endblock anchor_menu %}
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="col is-narrow is-hidden-mobile"></div>
+            <div class="col cnt text-c is-c section">
+                <p>
+                Content is available under <a
+                            href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.3 or later</a> unless otherwise noted.
                     </p>
-        </div>
-        <div class="container col is-2"></div>
-    </footer>
-    {% block js_body %}
-        <script type="text/javascript" src="{{ get_url(path="js/main.min.js") | safe }}"></script>
-    {% endblock js_body %}
-</body>
+            </div>
+            <div class="container col is-2"></div>
+        </footer>
+        {% block js_body %}
+            <script type="text/javascript" src="{{ get_url(path="js/main.min.js") | safe }}"></script>
+        {% endblock js_body %}
+    </body>
 </html>
