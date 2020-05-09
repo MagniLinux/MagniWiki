@@ -78,11 +78,25 @@ ssh-add -q < /dev/null
     <div class="msg-body">
         <strong>Tip</strong><br/>
 
-The above ssh-add.sh script will only add the default key `~/.ssh/id_rsa`. Assuming you have different SSH keys named `key1`, `key2`, `key3` in `~/.ssh/`, you may add them automatically on login by changing the above script to:
+The above ssh-add.sh script will only add the default key `~/.ssh/id_rsa`. Assuming you have multiple SSH keys in `~/.ssh/`, you may add them automatically on login by changing the above script to:
 
 ```sh ~/.config/autostart-scripts/ssh-add.sh
 #!/bin/sh
-ssh-add -q ~/.ssh/key1 ~/.ssh/key2 ~/.ssh/key3 < /dev/null
+
+try=0
+
+while [ ! -S "${PAM_KWALLET5_LOGIN}" ]; do
+        [ $try -ge 10 ] && exit
+        sleep 1
+        try=$(($try+1))
+done
+
+DOTSSHDIR="${HOME}/.ssh"
+
+for FILE in $(ls "${DOTSSHDIR}"); do
+        FPATH=$(readlink -f "${DOTSSHDIR}/${FILE}")
+        file "${FPATH}" | egrep -q 'private key$' && ssh-add "${FPATH}" </dev/null
+done
 ```
 
 </div>
