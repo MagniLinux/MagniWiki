@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for page in pages %}
+        <article class="md">
+            <div class="md-cnt">
+                <div class="cnt">
+                    <p class="title is-4">
+                        <a href="{{ page.link }}">{{ page.title }}</a>
+                    </p>
+                    {% if page.date %}
+                    <p class="subtitle is-size-6 text-grey-light">
+                        Published on {{ page.date }}
+                        </p>
+                    {% endif %}
+                    <p>{{page.desc}}</p>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
