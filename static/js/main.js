@@ -4,7 +4,7 @@ const baseurl = "https://wiki.magnilinux.org/search/?q="
 const mq = window.matchMedia( "(min-width: 1002px)" );
 
 // Dropdowns
-var $dropdowns = getAll('.dropdown:not(.is-hoverable)');
+var $dropdowns = getAll('.dropdown:not(.hoverable)');
 
 if ($dropdowns.length > 0) {
     $dropdowns.forEach(function ($el) {
@@ -21,7 +21,7 @@ if ($dropdowns.length > 0) {
 
 function closeDropdowns() {
     $dropdowns.forEach(function ($el) {
-        $el.classList.remove('is-active');
+        $el.classList.remove('on');
     });
 }
 
