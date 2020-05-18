@@ -10,7 +10,7 @@ if ($dropdowns.length > 0) {
     $dropdowns.forEach(function ($el) {
         $el.addEventListener('click', function (event) {
             event.stopPropagation();
-            $el.classList.toggle('is-active');
+            $el.classList.toggle('is-on');
         });
     });
 
@@ -21,7 +21,7 @@ if ($dropdowns.length > 0) {
 
 function closeDropdowns() {
     $dropdowns.forEach(function ($el) {
-        $el.classList.remove('on');
+        $el.classList.remove('is-on');
     });
 }
 
@@ -220,8 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const target = el.dataset.target;
                 const $target = document.getElementById(target);
                 // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                el.classList.toggle('on');
-                $target.classList.toggle('on');
+                el.classList.toggle('is-on');
+                $target.classList.toggle('is-on');
             }
             );
         }
